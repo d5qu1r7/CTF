@@ -2,7 +2,7 @@ Query:
 tshark -r meet_the_mole.pcapng -Y "dns&&dns.qry.type==16" -T fields -e dns.txt | base64 --decode | grep byuctf
 
 Options:
-	-r dns_capture.pcap: Reads the captured file.
+	-r meet_the_mole.pcapng: Reads the captured file.
 	-Y "dns.qry.type == 16": Filters for DNS TXT records.
 	-T fields: Specifies that you want to display specific fields.
 	-e frame.number -e frame.time -e ip.src -e ip.dst -e dns.qry.name -e dns.txt: Lists the fields to display, including the dns.txt field which contains the TXT record data.
