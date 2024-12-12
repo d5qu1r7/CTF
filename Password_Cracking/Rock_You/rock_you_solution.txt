@@ -1,0 +1,9 @@
+Hashcat query
+hashcat -m 500 -a 0 -o cracked.txt hash.txt /path/to/rockyou.txt
+
+Options
+    -m 500: Specifies the hash type (500 is for MD5, Unix).
+    -a 0: Specifies a straight attack mode.
+    -o cracked.txt: Specifies the output file where the cracked passwords will be saved.
+    hash.txt: The file containing your hash.
+    /path/to/rockyou.txt: The path to your rockyou.txt wordlist.
