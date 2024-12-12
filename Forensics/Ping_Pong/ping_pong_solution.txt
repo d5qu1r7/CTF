@@ -1,0 +1,13 @@
+Query
+tshark -T fields -e data.data -r ping.pcapng | awk '{print substr($0, length($0) - 1)}' | perl -ne 'print chr(hex($_))'
+
+Options
+    -r ping.pcapng: Reads the captured file.
+	-T fields: Specifies that you want to display specific fields.
+	-e data.data: Lists the fields to display, for this we want the data field.
+
+    tshark -T fields -e data.data -r ping.pcapng: Extracts all data bytes from each packet.
+    awk '{print substr($0, length($0) - 1)}': Processes the output to print only the last octet for each packet in hex format.
+    perl -ne 'print chr(hex($_))': Converts each hex value to its ASCII character and prints it.
+
+Note: Every packet in this capture is a ping packet so we do not need to filter by ping packets
